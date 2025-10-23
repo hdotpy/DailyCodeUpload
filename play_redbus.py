@@ -6,10 +6,7 @@ with sync_playwright() as p:
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://www.redbus.in/")
-    page.get_by_role("button", name="From").click()
-    page.get_by_role("textbox", name="From").fill("Che")
-    time.sleep(2)  # Wait for suggestions to load
-    page.get_by_role("button", name="From Search suggestions").click()
+    page.locator("//div[contains(@class,'dojWrapper')]/span[contains(text(),'Date of Journey')]").click()
     page.wait_for_timeout(5000)
     page.close()
 
