@@ -21,11 +21,11 @@ def browser(request):
 
     with sync_playwright() as p:
         if browser_name == "chromium":
-            browser_instance = p.chromium.launch(headless=False, slow_mo=100)
+            browser_instance = p.chromium.launch(headless=True, slow_mo=100)
         elif browser_name == "firefox":
-            browser_instance = p.firefox.launch(headless=False, slow_mo=100)
+            browser_instance = p.firefox.launch(headless=True, slow_mo=100)
         else:
-            browser_instance = p.webkit.launch(headless=False, slow_mo=100)
+            browser_instance = p.webkit.launch(headless=True, slow_mo=100)
 
         yield browser_instance
         browser_instance.close()
